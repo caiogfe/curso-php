@@ -11,8 +11,8 @@ body {
     min-height: 100vh;
     background-image: linear-gradient(30deg, #000747, #0630eb);
     display: flex;
-    align-items: flex-start;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
 main {
@@ -25,6 +25,7 @@ main {
     flex-direction: column;
     align-items: center;
     margin-top: 100px;
+    padding: 10px;
 }
 
 main > h1 {   
@@ -95,20 +96,18 @@ p a {
     color: black;
 }
 
-.voltar {
-    width: 90%;
-    font-size: 1em;
-    text-align: center;
-    text-decoration: none;
-    border-radius: 10px;
-    color: white;
-    background-color: #000747;
-    cursor: pointer;
+section {
+    max-width: 90%;
+    border-radius: 20px;
+    box-shadow: 2px 2px 1px rgba(0, 0, 0, 0.329);
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
     padding: 10px;
-    margin: 20px 0px;
-    transition: all 0.3s ease;
 }
 
-.voltar:hover {
-    background-color: #0630eb;
+section h2 {
+    color: #0630eb;
 }
