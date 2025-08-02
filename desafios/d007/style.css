@@ -112,3 +112,7 @@ section h2 {
     color: #0630eb;
     text-align: center;
 }
+
+#erro p {
+    color: red;
+}
