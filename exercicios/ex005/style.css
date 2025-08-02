@@ -1,0 +1,110 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+
+:root {
+    --cor0: #13007c;
+    --cor1: #6200ff;
+    --cor2: #b291ff;
+    --cor3: #8e5ffc;
+    --cor4: #01c24b;
+    --cor5: #b7ffd3;
+}
+
+* {
+    font-family: 'Quicksand','Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: linear-gradient(45deg, var(--cor0), var(--cor1));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+html {
+    height: 100vh;
+    width: 100vw;
+}
+
+header > h1 {
+    color: white;
+    font-size: 2.4em;
+    text-align: center;
+    text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.349);
+    margin: 50px;
+}
+
+main {
+    width: 90%;
+    max-width: 700px;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 3px 3px 1px rgba(0, 0, 0, 0.384);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px 0px;
+}
+
+form {
+    background-color: var(--cor2);
+    width: 95%;
+    border-radius: 20px;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 0px;
+    gap: 20px;
+}
+
+.campo {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.campo > label {
+    background-color: var(--cor3);
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    align-self: flex-start;
+    padding: 5px;
+}
+
+.campo > input[type=text] {
+    height: 2.5em;
+    font-size: 1em;
+    border: none;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+form > input[type=submit] {
+    width: 80%;
+    background-color: var(--cor4);
+    color: white;
+    font-size: 1em;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    display: block;
+    padding: 10px 0px;
+    transition: 0.4s;
+}
+
+form > input[type=submit]:hover {
+    background-color: var(--cor5);
+    color: var(--cor4);
+    cursor: pointer;
+    outline: 3px solid var(--cor4);
+    outline-offset: -1px;
+}

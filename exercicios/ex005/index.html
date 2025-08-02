@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interação com Formulários</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Apresente-se para nós!</h1>
+    </header>
+        <main>
+            <form action="cadastro.php" method="get">
+                <div class="campo">
+                    <label for="idnome">Nome</label>
+                    <input type="text" name="nome" id="idnome" required>
+                </div>
+                <div class="campo">
+                    <label for="idsobrenome">Sobrenome</label>
+                    <input type="text" name="sobrenome" id="idsobrenome" required>
+                </div>
+                <input type="submit" value="Enviar">
+            </form>
+        </main>
+</body>
+</html>
