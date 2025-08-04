@@ -9,9 +9,9 @@
 <body>
     <main>
         <?php 
-            $valorNumero = (int)($_GET['numero'] ?? 0);
+            $valorNumero = filter_input(INPUT_GET, 'numero', FILTER_VALIDATE_INT);
             $raizQuadrada = sqrt($valorNumero); 
-            $raizCubica = ;
+            $raizCubica = pow($valorNumero, 1/3);
         ?>
         <h1>Informe um número</h1>
         <form action="<?=htmlspecialchars($_SERVER['PHP_SELF'])?>" method="get">
@@ -22,5 +22,21 @@
             <input type="submit" value="Calcular Raízes">
         </form>
     </main>
+    <?php
+        if ($valorNumero !== false && $valorNumero >= 0): ?>
+            <section>
+                <h2>Resultado Final</h2>
+                <p>Analisando o <strong>número <?=$valorNumero?></strong>, temos: </p>
+                <ul>
+                    <li> A sua raiz quadrada é <strong><?=number_format($raizQuadrada, 3, ',', '.')?></strong>
+                    <li> A sua raiz cúbica é <strong> <?=number_format($raizCubica, 3, ',', '.')?></strong>
+                </ul>
+            </section>
+        <?php elseif(isset($_GET['numero'])): ?>
+            <section id="erro">
+                <h2>Cálculo Incompleto</h2>
+                <p>Por favor, informe um número válido.</p>
+            </section>
+        <?php endif ?>
 </body>
 </html>

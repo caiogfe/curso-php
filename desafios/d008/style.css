@@ -113,6 +113,10 @@ section h2 {
     text-align: center;
 }
 
+section ul {
+    padding-bottom: 15px;
+}
+
 #erro p {
     color: red;
 }
