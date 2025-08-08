@@ -11,7 +11,7 @@
         $salarioMinimo = 1518;
         $valorSalario = filter_input(INPUT_GET, 'salario', FILTER_VALIDATE_FLOAT);
         $quantSalario = intdiv($valorSalario, $salarioMinimo);
-        $valorRestante = $valorSalario - ($quantSalario * $salarioMinimo);
+        $valorRestante = fmod($valorSalario, $salarioMinimo);
         $valorPadrao = numfmt_create("pt_BR", NumberFormatter::CURRENCY);
     ?>
     <main>
@@ -21,7 +21,7 @@
                 <label for="idsalario">Salário (R$)</label>
                 <input type="number" name="salario" id="idsalario" step="0.01" value="<?= htmlspecialchars($valorSalario)?>" min="1">
             </div>
-            <p>Considerando o salário mínimo de <strong>R$ 1.518,00</strong></p>
+            <p>Considerando o salário mínimo de <strong><?=numfmt_format_currency($valorPadrao, $salarioMinimo, 'BRL')?></strong></p>
             <input type="submit" value="Calcular">
         </form>
     </main>
