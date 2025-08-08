@@ -7,12 +7,12 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <?php 
+        $valorNumero = filter_input(INPUT_GET, 'numero', FILTER_VALIDATE_INT);
+        $raizQuadrada = sqrt($valorNumero); 
+        $raizCubica = pow($valorNumero, 1/3);
+    ?>
     <main>
-        <?php 
-            $valorNumero = filter_input(INPUT_GET, 'numero', FILTER_VALIDATE_INT);
-            $raizQuadrada = sqrt($valorNumero); 
-            $raizCubica = pow($valorNumero, 1/3);
-        ?>
         <h1>Informe um número</h1>
         <form action="<?=htmlspecialchars($_SERVER['PHP_SELF'])?>" method="get">
             <div class="campo">
@@ -23,7 +23,7 @@
         </form>
     </main>
     <?php
-        if ($valorNumero !== false && $valorNumero >= 0): ?>
+        if ($valorNumero !== false && $valorNumero >= -1): ?>
             <section>
                 <h2>Resultado Final</h2>
                 <p>Analisando o <strong>número <?=$valorNumero?></strong>, temos: </p>
