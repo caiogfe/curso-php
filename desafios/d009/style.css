@@ -106,6 +106,7 @@ section {
     align-items: center;
     margin: 50px 0px;
     padding: 10px;
+    list-style-position: inside;
 }
 
 section h2 {
@@ -117,6 +118,6 @@ section ul {
     padding-bottom: 15px;
 }
 
-#erro p {
+section.mensagem-erro p {
     color: red;
 }
