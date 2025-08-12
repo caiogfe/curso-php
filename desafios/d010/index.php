@@ -10,16 +10,18 @@
     <?php 
         $atual = date('Y');
         $nasc = filter_input(INPUT_GET, 'nasc', FILTER_VALIDATE_INT);
-        $ano = filter_input(INPUT_GET, 'ano', FILTER_VALIDATE_INT);
+        $ano = filter_input(INPUT_GET, 'ano', FILTER_VALIDATE_INT) ?? $atual;
         $idade = null;
         $erro = "";
         if ($_GET) {
             if ($nasc === false || $ano === false) {
                 $erro = "Por favor, informe valores válidos.";
-            } elseif ($nasc <= 0 || $ano <= 0) {
-                $erro = "Nenhum dos anos devem ser iguais ou menores que zero.";
+            } elseif ($nasc < 1900 || $ano < 1900) {
+                $erro = "Os anos devem ser maiores ou iguais a 1900.";
             } elseif ($nasc > $ano) {
-                $erro = "O ano de nascimento deve ser menor que o ano futuro.";
+                $erro = "O ano de nascimento não pode ser maior que o ano futuro.";
+            } elseif ($nasc > $atual) {
+                $erro = "O ano de nascimento não pode ser maior que o ano atual.";
             } else {
                 $idade = $ano - $nasc;
             }
@@ -30,11 +32,11 @@
         <form action="<?=htmlspecialchars($_SERVER['PHP_SELF'])?>" method="get">
             <div class="campo">
                 <label for="idnasc">Em que ano você nasceu?</label>
-                <input type="number" name="nasc" id="idnasc" min="1" required value="<?=htmlspecialchars($nasc)?>">
+                <input type="number" name="nasc" id="idnasc" min="1900" max="<?=$atual?>" required value="<?=htmlspecialchars($nasc)?>">
             </div>
             <div class="campo">
                 <label for="idano">Quer saber sua idade em que ano? (atualmente estamos em <strong><?=$atual?></strong>)</label>
-                <input type="number" name="ano" id="idano" min="1" required value="<?=htmlspecialchars($ano)?>">
+                <input type="number" name="ano" id="idano" min="1900" required value="<?=htmlspecialchars($ano)?>">
             </div>
             <input type="submit" value="Qual será minha idade?">
         </form>
